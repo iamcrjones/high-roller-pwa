@@ -1,10 +1,11 @@
 import Head from "next/head";
-import Link from "next/link";
+import React from "react";
+import RollPage from "./roll-page";
 
 export default function Home() {
   return (
     <>
-      <Head>
+      <Head key="in-index">
         <title>AYY LMAO</title>
         <meta name="high-roller" content="A dice roller pwa." />
         <link rel="icon" href="/favicon.ico" />
@@ -13,7 +14,7 @@ export default function Home() {
         <meta name="theme-color" content="#000" />
       </Head>
       <main className=" flex h-screen w-full flex-col items-center justify-center border-2 border-cyan-400 bg-gray-400 text-white md:block">
-        <h1>why hello there</h1>
+        <RollPage />
       </main>
     </>
   );
