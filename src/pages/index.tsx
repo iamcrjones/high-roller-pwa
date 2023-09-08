@@ -43,7 +43,9 @@ export default function Home() {
           </div>
         </div>
       </main> */}
-      <h1>kek</h1>
+      <main className="bg-gray-400 text-white">
+        <h1>kek</h1>
+      </main>
     </>
   );
 }
