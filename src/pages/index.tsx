@@ -1,8 +1,11 @@
 import Head from "next/head";
 import React from "react";
 import RollPage from "./roll-page";
+import useWindowDimensions from "@/utils/useWindowDimensions";
 
 export default function Home() {
+  const dimensions = useWindowDimensions();
+  console.log({ dimensions });
   return (
     <>
       <Head key="in-index">
