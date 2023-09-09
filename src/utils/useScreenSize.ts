@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function getDimensions() {
+function getDeviceWidth() {
   return typeof window === "undefined" ? null : window.innerWidth;
 }
 function determineWidthVariable(width: number) {
@@ -12,14 +12,14 @@ function determineWidthVariable(width: number) {
   if (width >= 1536) return "2xl";
 }
 
-export default function useWindowDimensions() {
-  const [dimensions, setDimensions] = useState(getDimensions());
+export default function useScreenSize() {
+  const [deviceWidth, setDeviceWidth] = useState(getDeviceWidth());
   useEffect(() => {
     function handleResize() {
-      setDimensions(getDimensions());
+      setDeviceWidth(getDeviceWidth());
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  if (dimensions) return determineWidthVariable(dimensions);
+  if (deviceWidth) return determineWidthVariable(deviceWidth);
 }
