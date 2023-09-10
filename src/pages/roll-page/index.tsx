@@ -24,13 +24,15 @@ const RollPage = () => {
   return (
     <div className="flex flex-col space-y-4">
       <h1>why hello there</h1>
-      <button onClick={() => handleRoll(diceAmount)} className="bg-pink-400">
+      <button
+        onClick={() => handleRoll(diceAmount)}
+        className="bg-red-700 text-white"
+      >
         ROLL
       </button>
       <select
         defaultValue={diceAmount}
         onChange={(e) => setDiceAmount(+e.target.value)}
-        className="bg-black text-red-400"
       >
         <option value={1}>1</option>
         <option value={2}>2</option>
@@ -42,7 +44,6 @@ const RollPage = () => {
       <select
         defaultValue={diceType}
         onChange={(e) => setDiceType(e.target.value)}
-        className="bg-black text-red-400"
       >
         <option value={"d6"}>d6</option>
         <option value={"d8"}>d8</option>
