@@ -2,7 +2,7 @@ import { rollDice } from "@/utils/rollDice";
 import { Canvas } from "@react-three/fiber";
 import React, { useState } from "react";
 import { Physics } from "@react-three/cannon";
-import { Cube, Plane } from "./components/dice";
+import Dice from "./components/dice";
 
 const RollPage = () => {
   const [result, setResult] = useState<number | number[]>();
@@ -79,8 +79,9 @@ const RollPage = () => {
             shadow-mapSize={[2048, 2048]}
           />
           <Physics>
-            <Plane position={[0, -2.5, 0]} />
-            <Cube position={[0.1, 5, 0]} />
+            {/* <Plane position={[0, -2.5, 0]} />
+            <Cube position={[0.1, 5, 0]} /> */}
+            <Dice />
           </Physics>
         </Canvas>
       </div>

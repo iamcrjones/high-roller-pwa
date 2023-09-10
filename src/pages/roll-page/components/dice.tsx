@@ -15,7 +15,7 @@ import { BufferGeometry, Mesh } from "three";
 // }
 // export default MyAnimatedBox;
 
-export function Cube(props: BoxProps) {
+function Cube(props: BoxProps) {
   const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props }));
   return (
     <mesh
@@ -29,12 +29,20 @@ export function Cube(props: BoxProps) {
   );
 }
 
-export function Plane(props: PlaneProps) {
+function Plane(props: PlaneProps) {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
   return (
     <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>} receiveShadow>
       <planeGeometry args={[1000, 1000]} />
       <shadowMaterial color="#171717" transparent opacity={0.4} />
     </mesh>
+  );
+}
+export default function Dice() {
+  return (
+    <>
+      <Plane position={[0, -2.5, 0]} />
+      <Cube position={[0.1, 5, 0]} />
+    </>
   );
 }
