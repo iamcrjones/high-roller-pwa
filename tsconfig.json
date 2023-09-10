@@ -28,7 +28,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    "next.config.js"
+    "next.config.js",
+    "src/pages/roll-page/components/dice.jsx"
   ],
   "exclude": ["node_modules"]
 }

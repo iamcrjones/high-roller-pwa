@@ -1,5 +1,8 @@
 import { rollDice } from "@/utils/rollDice";
+import { Canvas } from "@react-three/fiber";
 import React, { useState } from "react";
+import { Physics } from "@react-three/cannon";
+import { Cube, Plane } from "./components/dice";
 
 const RollPage = () => {
   const [result, setResult] = useState<number | number[]>();
@@ -61,6 +64,26 @@ const RollPage = () => {
       ) : (
         <h1>You rolled {result}</h1>
       )}
+      <div id="canvas-container">
+        <Canvas
+          shadows="soft"
+          dpr={[1, 2]}
+          gl={{ alpha: false }}
+          camera={{ position: [-1, 5, 5], fov: 45 }}
+        >
+          <color attach="background" args={["pink"]} />
+          <ambientLight />
+          <directionalLight
+            position={[10, 10, 10]}
+            castShadow
+            shadow-mapSize={[2048, 2048]}
+          />
+          <Physics>
+            <Plane position={[0, -2.5, 0]} />
+            <Cube position={[0.1, 5, 0]} />
+          </Physics>
+        </Canvas>
+      </div>
     </div>
   );
 };
