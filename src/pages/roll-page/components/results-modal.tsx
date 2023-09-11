@@ -3,12 +3,19 @@ import React from "react";
 type ModalProps = {
   results: number | number[] | null;
   close: () => void;
+  open: boolean;
 };
 
-function ResultsModal({ results, close }: ModalProps) {
+function ResultsModal({ results, close, open }: ModalProps) {
   console.log({ results });
   return (
-    <div className=" absolute inset-0 z-40 flex flex-col items-center bg-black text-white opacity-75">
+    <div
+      className={`absolute inset-0 ${
+        open ? "h-full" : "h-0"
+      } z-40 flex flex-col items-center bg-black text-white transition-all duration-500 ${
+        !!open ? "opacity-80" : "opacity-0"
+      }`}
+    >
       <div className="flex h-full flex-col justify-between">
         <h1 className="font-roboto py-8 text-4xl">You Rolled...</h1>
         <div>

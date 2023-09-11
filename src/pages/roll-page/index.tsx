@@ -75,9 +75,13 @@ const RollPage = () => {
         <option value={"d20"}>d20</option>
       </select>
       <div className="space-y-0">
-        {state.showModal && (
-          <ResultsModal results={state.result} close={handleClose} />
-        )}
+        {/* {state.showModal && ( */}
+        <ResultsModal
+          results={state.result}
+          close={handleClose}
+          open={!!state.showModal}
+        />
+        {/* )} */}
       </div>
     </div>
   );
