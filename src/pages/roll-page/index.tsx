@@ -1,42 +1,43 @@
 import { rollDice } from "@/utils/rollDice";
-import { Canvas } from "@react-three/fiber";
+// import { Canvas } from "@react-three/fiber";
 import React, { useState } from "react";
-import {
-  BoxProps,
-  Physics,
-  PlaneProps,
-  useBox,
-  usePlane,
-} from "@react-three/cannon";
-import { BufferGeometry, Mesh } from "three";
+// import {
+//   BoxProps,
+//   Physics,
+//   PlaneProps,
+//   useBox,
+//   usePlane,
+// } from "@react-three/cannon";
+// import { BufferGeometry, Mesh } from "three";
 
 const RollPage = () => {
-  function Cube(props: BoxProps) {
-    const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props }));
-    return (
-      <mesh
-        ref={ref as React.RefObject<Mesh<BufferGeometry>>}
-        receiveShadow
-        castShadow
-      >
-        <boxGeometry />
-        <meshLambertMaterial color="green" />
-      </mesh>
-    );
-  }
+  //   function Cube(props: BoxProps) {
+  //     const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props }));
+  //     return (
+  //       <mesh
+  //         ref={ref as React.RefObject<Mesh<BufferGeometry>>}
+  //         receiveShadow
+  //         castShadow
+  //       >
+  //         <boxGeometry />
+  //         <meshLambertMaterial color="green" />
+  //       </mesh>
+  //     );
+  //   }
 
-  function Plane(props: PlaneProps) {
-    const [ref] = usePlane(() => ({
-      rotation: [-Math.PI / 2, 0, 0],
-      ...props,
-    }));
-    return (
-      <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>} receiveShadow>
-        <planeGeometry args={[1000, 1000]} />
-        <shadowMaterial color="#171717" transparent opacity={0.4} />
-      </mesh>
-    );
-  }
+  //   function Plane(props: PlaneProps) {
+  //     const [ref, api] = usePlane(() => ({
+  //       rotation: [-Math.PI / 2, 0, 0],
+  //       ...props,
+  //     }));
+  //     console.log({ api });
+  //     return (
+  //       <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>} receiveShadow>
+  //         {/* <planeGeometry args={[1000, 1000]} /> */}
+  //         <shadowMaterial color="#ffffff" transparent opacity={0.4} />
+  //       </mesh>
+  //     );
+  //   }
   const [result, setResult] = useState<number | number[]>();
   const [diceAmount, setDiceAmount] = useState(1);
   const [diceType, setDiceType] = useState("d6");
@@ -96,14 +97,22 @@ const RollPage = () => {
       ) : (
         <h1>You rolled {result}</h1>
       )}
-      <div id="canvas-container">
+    </div>
+  );
+};
+export default RollPage;
+{
+  /* <div
+        id="canvas-container"
+        className="-z-10 h-screen w-screen bg-transparent"
+      >
         <Canvas
           shadows="soft"
           dpr={[1, 2]}
-          gl={{ alpha: false }}
+          gl={{ alpha: true, autoClearColor: true }}
           camera={{ position: [-1, 5, 5], fov: 45 }}
         >
-          <color attach="background" args={["pink"]} />
+          <color attach="background" args={["undefined"]} />
           <ambientLight />
           <directionalLight
             position={[10, 10, 10]}
@@ -111,12 +120,10 @@ const RollPage = () => {
             shadow-mapSize={[2048, 2048]}
           />
           <Physics>
-            <Plane position={[0, -2.5, 0]} />
             <Cube position={[0.1, 5, 0]} />
+            <Plane position={[0, -2.5, 0]} />
           </Physics>
         </Canvas>
       </div>
-    </div>
-  );
-};
-export default RollPage;
+    </div> */
+}
