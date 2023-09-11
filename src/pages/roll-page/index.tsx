@@ -1,10 +1,42 @@
 import { rollDice } from "@/utils/rollDice";
 import { Canvas } from "@react-three/fiber";
 import React, { useState } from "react";
-import { Physics } from "@react-three/cannon";
-import Dice from "./components/dice";
+import {
+  BoxProps,
+  Physics,
+  PlaneProps,
+  useBox,
+  usePlane,
+} from "@react-three/cannon";
+import { BufferGeometry, Mesh } from "three";
 
 const RollPage = () => {
+  function Cube(props: BoxProps) {
+    const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props }));
+    return (
+      <mesh
+        ref={ref as React.RefObject<Mesh<BufferGeometry>>}
+        receiveShadow
+        castShadow
+      >
+        <boxGeometry />
+        <meshLambertMaterial color="green" />
+      </mesh>
+    );
+  }
+
+  function Plane(props: PlaneProps) {
+    const [ref] = usePlane(() => ({
+      rotation: [-Math.PI / 2, 0, 0],
+      ...props,
+    }));
+    return (
+      <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>} receiveShadow>
+        <planeGeometry args={[1000, 1000]} />
+        <shadowMaterial color="#171717" transparent opacity={0.4} />
+      </mesh>
+    );
+  }
   const [result, setResult] = useState<number | number[]>();
   const [diceAmount, setDiceAmount] = useState(1);
   const [diceType, setDiceType] = useState("d6");
@@ -79,9 +111,8 @@ const RollPage = () => {
             shadow-mapSize={[2048, 2048]}
           />
           <Physics>
-            {/* <Plane position={[0, -2.5, 0]} />
-            <Cube position={[0.1, 5, 0]} /> */}
-            <Dice />
+            <Plane position={[0, -2.5, 0]} />
+            <Cube position={[0.1, 5, 0]} />
           </Physics>
         </Canvas>
       </div>
