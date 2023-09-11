@@ -1,10 +1,12 @@
 import { rollDice } from "@/utils/rollDice";
 import React, { useState } from "react";
+import ResultsModal from "./components/results-modal";
 
 const RollPage = () => {
   const [result, setResult] = useState<number | number[]>();
   const [diceAmount, setDiceAmount] = useState(1);
   const [diceType, setDiceType] = useState("d6");
+  const [showModal, setShowModal] = useState(false);
 
   const handleRoll = (amount: number) => {
     const rollNum = diceType.split("d")[1];
@@ -20,12 +22,19 @@ const RollPage = () => {
       setResult(results);
     }
   };
-  console.log({ result });
+  console.log({ showModal });
+  const handleClose = () => {
+    setShowModal(false);
+    setResult(undefined);
+  };
   return (
     <div className="flex flex-col space-y-4">
       <h1>why hello there</h1>
       <button
-        onClick={() => handleRoll(diceAmount)}
+        onClick={() => {
+          handleRoll(diceAmount);
+          setShowModal(true);
+        }}
         className="bg-red-700 text-white"
       >
         ROLL
@@ -51,16 +60,9 @@ const RollPage = () => {
         <option value={"d12"}>d12</option>
         <option value={"d20"}>d20</option>
       </select>
-      {result && typeof result === "object" && result.length > 1 ? (
-        <h1>
-          You rolled{" "}
-          {result.map((r, ix) => {
-            return <h1 key={ix}>{r}</h1>;
-          })}
-        </h1>
-      ) : (
-        <h1>You rolled {result}</h1>
-      )}
+      <div className="space-y-0">
+        {showModal && <ResultsModal results={result} close={handleClose} />}
+      </div>
     </div>
   );
 };
