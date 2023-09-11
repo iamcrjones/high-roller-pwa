@@ -1,5 +1,5 @@
 export type State = {
-  result: number | number[] | undefined;
+  result: number | number[] | null;
   diceAmount: number;
   diceType: string;
   showModal: boolean;
@@ -8,13 +8,13 @@ export type State = {
 export type Action =
   | {
       type: "setResult";
-      payload: number | number[] | undefined;
+      payload: number | number[] | null;
     }
   | { type: "setDiceAmount"; payload: number }
   | { type: "setDiceType"; payload: string }
   | { type: "setShowModal"; payload: boolean };
 
-export function reducer(state: State, action: Action) {
+function reducer(state: State, action: Action) {
   const { type, payload } = action;
   switch (type) {
     case "setResult":
@@ -29,3 +29,5 @@ export function reducer(state: State, action: Action) {
       return state;
   }
 }
+
+export default reducer;

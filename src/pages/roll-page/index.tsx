@@ -1,11 +1,13 @@
 import { rollDice } from "@/utils/rollDice";
-import React, { Reducer, useReducer } from "react";
+import React, { useReducer } from "react";
+import type { Reducer } from "react";
 import ResultsModal from "./components/results-modal";
-import { Action, State, reducer } from "./utils/reducer";
+import type { Action, State } from "../../utils/reducer";
+import reducer from "../../utils/reducer";
 
 const RollPage = () => {
   const initialState = {
-    result: undefined,
+    result: null,
     diceAmount: 1,
     diceType: "d6",
     showModal: false,
@@ -33,7 +35,7 @@ const RollPage = () => {
   console.log({ state });
   const handleClose = () => {
     dispatch({ type: "setShowModal", payload: false });
-    dispatch({ type: "setResult", payload: undefined });
+    dispatch({ type: "setResult", payload: null });
   };
   return (
     <div className="flex flex-col space-y-4">

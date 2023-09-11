@@ -1,7 +1,7 @@
 import React from "react";
 
 type ModalProps = {
-  results: number | number[] | undefined;
+  results: number | number[] | null;
   close: () => void;
 };
 
