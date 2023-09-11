@@ -10,7 +10,7 @@ function ResultsModal({ results, close }: ModalProps) {
   return (
     <div className=" absolute inset-0 z-40 flex flex-col items-center bg-black text-white opacity-75">
       <div className="flex h-full flex-col justify-between">
-        <h1 className="py-8 text-4xl">You Rolled</h1>
+        <h1 className="py-8 text-4xl">You Rolled...</h1>
         <div>
           {typeof results === "number" ? (
             <h1>single result {results}</h1>
