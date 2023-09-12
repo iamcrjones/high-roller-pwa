@@ -4,13 +4,14 @@ import type { Reducer } from "react";
 import ResultsModal from "./components/results-modal";
 import type { Action, State } from "../../utils/reducer";
 import reducer from "../../utils/reducer";
+import DiceList from "./components/dice-list";
 
 const RollPage = () => {
   const initialState = {
     result: null,
     diceAmount: 1,
     diceType: "d6",
-    showModal: false,
+    // showModal: false,
   };
 
   const [state, dispatch] = useReducer<Reducer<State, Action>>(
@@ -33,22 +34,25 @@ const RollPage = () => {
     }
   };
   console.log({ state });
-  const handleClose = () => {
-    dispatch({ type: "setShowModal", payload: false });
-    dispatch({ type: "setResult", payload: null });
-  };
+  // const handleClose = () => {
+  // dispatch({ type: "setShowModal", payload: false });
+  // dispatch({ type: "setResult", payload: null });
+  // };
   return (
     <div className="flex flex-col space-y-4">
-      <h1>why hello there</h1>
+      <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
+        High Roller
+      </p>
       <button
         onClick={() => {
           handleRoll(state.diceAmount);
-          dispatch({ type: "setShowModal", payload: true });
+          // dispatch({ type: "setShowModal", payload: true });
         }}
-        className="bg-red-700 text-white"
+        className="h-12 w-20 bg-red-700 text-white"
       >
         ROLL
       </button>
+      {/* <h1>why hello there</h1>
       <select
         defaultValue={state.diceAmount}
         onChange={(e) =>
@@ -73,16 +77,8 @@ const RollPage = () => {
         <option value={"d10"}>d10</option>
         <option value={"d12"}>d12</option>
         <option value={"d20"}>d20</option>
-      </select>
-      <div className="space-y-0">
-        {/* {state.showModal && ( */}
-        <ResultsModal
-          results={state.result}
-          close={handleClose}
-          open={!!state.showModal}
-        />
-        {/* )} */}
-      </div>
+      </select> */}
+      <DiceList dispatch={dispatch} currentDice={state.diceType} />
     </div>
   );
 };
