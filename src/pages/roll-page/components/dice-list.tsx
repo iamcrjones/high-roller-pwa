@@ -5,7 +5,7 @@ type Propper = { dispatch: React.Dispatch<Action>; currentDice: string };
 const DiceList = ({ dispatch, currentDice }: Propper) => {
   const dice = ["d6", "d8", "d10", "d12", "d20"];
   return (
-    <div className="absolute inset-y-0 left-4 flex h-full flex-col justify-center space-y-4">
+    <div className="absolute inset-y-0 left-4 flex flex-col justify-center space-y-4">
       <h2>Dice</h2>
       {dice.map((d) => {
         return (
