@@ -1,17 +1,17 @@
 import { rollDice } from "@/utils/rollDice";
 import React, { useReducer } from "react";
 import type { Reducer } from "react";
-import ResultsModal from "./components/results-modal";
 import type { Action, State } from "../../utils/reducer";
 import reducer from "../../utils/reducer";
 import DiceList from "./components/dice-list";
+import Modifier from "./components/modifier";
 
 const RollPage = () => {
   const initialState = {
     result: null,
     diceAmount: 1,
     diceType: "d6",
-    // showModal: false,
+    modifier: 0,
   };
 
   const [state, dispatch] = useReducer<Reducer<State, Action>>(
@@ -34,51 +34,28 @@ const RollPage = () => {
     }
   };
   console.log({ state });
-  // const handleClose = () => {
-  // dispatch({ type: "setShowModal", payload: false });
-  // dispatch({ type: "setResult", payload: null });
-  // };
   return (
-    <div className="flex flex-col space-y-4">
-      <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
-        High Roller
-      </p>
-      <button
-        onClick={() => {
-          handleRoll(state.diceAmount);
-          // dispatch({ type: "setShowModal", payload: true });
-        }}
-        className="h-12 w-20 bg-red-700 text-white"
-      >
-        ROLL
-      </button>
-      {/* <h1>why hello there</h1>
-      <select
-        defaultValue={state.diceAmount}
-        onChange={(e) =>
-          dispatch({ type: "setDiceAmount", payload: +e.target.value })
-        }
-      >
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-        <option value={3}>3</option>
-        <option value={4}>4</option>
-        <option value={5}>5</option>
-        <option value={6}>6</option>
-      </select>
-      <select
-        defaultValue={state.diceType}
-        onChange={(e) =>
-          dispatch({ type: "setDiceType", payload: e.target.value })
-        }
-      >
-        <option value={"d6"}>d6</option>
-        <option value={"d8"}>d8</option>
-        <option value={"d10"}>d10</option>
-        <option value={"d12"}>d12</option>
-        <option value={"d20"}>d20</option>
-      </select> */}
-      <DiceList dispatch={dispatch} currentDice={state.diceType} />
+    <div>
+      <div className="flex h-screen w-screen flex-col items-center justify-center border-2 border-pink-400">
+        <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
+          High Roller
+        </p>
+        <div className="flex space-x-8">
+          <Modifier />
+          <button
+            onClick={() => {
+              handleRoll(state.diceAmount);
+            }}
+            className="h-12 w-20 rounded bg-red-700 text-white "
+          >
+            ROLL
+          </button>
+        </div>
+        <div className="h-1/2 w-full border-2 border-blue-500"></div>
+      </div>
+      <div className="absolute inset-y-0 left-0 ">
+        <DiceList dispatch={dispatch} currentDice={state.diceType} />
+      </div>
     </div>
   );
 };
