@@ -25,7 +25,7 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
               height="40"
               viewBox="0 0 235 264"
               // fill={d === currentDice ? "#b91c1c" : "none"}
-              className={`transition-all transition-colors ${
+              className={`transition-all ${
                 d === currentDice ? "scale-125" : ""
               } ${d === currentDice ? "fill-red-700" : "fill-gray-400"}`}
             >
