@@ -3,15 +3,12 @@ import React from "react";
 
 type Propper = { dispatch: React.Dispatch<Action>; currentDice: string };
 const DiceList = ({ dispatch, currentDice }: Propper) => {
-  const dice = ["d6", "d8", "d10", "d12", "d20"];
   return (
     <div className="absolute inset-y-0 left-4 flex flex-col justify-center space-y-4">
       <h2>Dice</h2>
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d4" })}
-        id="dice-d4"
-        style={{ "--order": 1 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +31,6 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d6" })}
-        id="dice-d6"
-        style={{ "--order": 2 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +53,6 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d8" })}
-        id="dice-d8"
-        style={{ "--order": 3 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +75,6 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d10" })}
-        id="dice-d10"
-        style={{ "--order": 4 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +89,7 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
           <path
             d="M65.5 11.5L18 1.5L5.5 9M65.5 11.5L63.5 61L50 72M65.5 11.5L45 57.5M65.5 11.5L15 19M5.5 9L2 61M5.5 9L15 19M2 61L50 72M2 61L22 44.5M50 72L45 57.5M45 57.5L22 44.5M22 44.5L15 19"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </svg>
         <h3>d10</h3>
@@ -106,8 +97,6 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d12" })}
-        id="dice-d12"
-        style={{ "--order": 5 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +111,7 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
           <path
             d="M17 11L31.5 2L58 4.5M17 11L33 19M17 11L2 34L9.5 55M33 19L60.5 14.5L58 4.5M33 19L29.5 47M58 4.5L72.5 25L79.5 43M79.5 43L66 67L51.5 76.5M79.5 43L72.5 39.5M51.5 76.5L23.5 75L9.5 55M51.5 76.5L55 60M9.5 55L29.5 47M29.5 47L55 60M55 60L72.5 39.5M72.5 39.5L61 15.5"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </svg>
         <h3>d12</h3>
@@ -130,8 +119,6 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch({ type: "setDiceType", payload: "d20" })}
-        id="dice-d20"
-        style={{ "--order": 6 } as React.CSSProperties}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +133,7 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
           <path
             d="M57 1.5L14 7.5M57 1.5L80.5 35M57 1.5L45.5 18M14 7.5L1.5 44.5M14 7.5L45.5 18M14 7.5L9.5 44.5M1.5 44.5L23 78.5M1.5 44.5H9.5M23 78.5L66.5 72.5M23 78.5L9.5 44.5M23 78.5L51.5 63M66.5 72.5L80.5 35M66.5 72.5L51.5 63M80.5 35L45.5 18M80.5 35L51.5 63M45.5 18L51.5 63M45.5 18L9.5 44.5M51.5 63L9.5 44.5"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </svg>
         <h3>d20</h3>
