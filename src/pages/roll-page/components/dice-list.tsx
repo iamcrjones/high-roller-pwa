@@ -14,11 +14,30 @@ const DiceList = ({ dispatch, currentDice }: Propper) => {
             className="flex flex-col items-center space-y-2"
             onClick={() => dispatch({ type: "setDiceType", payload: d })}
           >
-            <div
+            {/* <div
               className={`h-10 w-10 transition-colors ${
                 d === currentDice ? "bg-red-700" : "bg-black"
               }`}
-            ></div>
+            ></div> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 235 264"
+              // fill={d === currentDice ? "#b91c1c" : "none"}
+              className={`transition-all transition-colors ${
+                d === currentDice ? "scale-125" : ""
+              } ${d === currentDice ? "fill-red-700" : "fill-gray-400"}`}
+            >
+              <path
+                d="M49 263L1 140L93.8504 1.22363L234 167L49 263Z"
+                fill="#858585"
+              />
+              <path
+                d="M94 1L93.8504 1.22363M49 263L1 140L93.8504 1.22363M49 263L234 167L93.8504 1.22363M49 263L93.8504 1.22363"
+                stroke="#1C1C1C"
+              />
+            </svg>
             <h3>{d}</h3>
           </div>
         );
