@@ -102,7 +102,7 @@ const RollPage = () => {
                             </p>
                           </div>
                         ) : (
-                          <p className="text-2xl">{state.result}</p>
+                          <p className="text-2xl">{result.roll}</p>
                         )}
                       </div>
                     );

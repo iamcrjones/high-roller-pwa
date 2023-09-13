@@ -27,6 +27,7 @@ const Modifier = ({ dispatch, modifier }: ModifierProps) => {
       <input
         placeholder="0"
         className="w-16 border-2 border-gray-400"
+        name="modifier"
         onChange={(e) =>
           dispatch({ type: "setModifier", payload: +e.target.value || 0 })
         }
