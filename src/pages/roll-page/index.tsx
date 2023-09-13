@@ -62,10 +62,10 @@ const RollPage = () => {
           </button>
         </div>
         <div className="flex h-1/2 w-full flex-col items-center border-2 border-blue-500">
-          <p className="mt-3 text-4xl">You Rolled...</p>
           <div className="flex h-full flex-col items-center justify-between">
             {!!state.prevResults.length && (
               <div>
+                <p className="mt-3 text-4xl">You Rolled...</p>
                 {state.prevResults[0]?.modifier &&
                 state.prevResults[0]?.modifier !== 0 ? (
                   <div className="flex space-x-4">
@@ -85,27 +85,30 @@ const RollPage = () => {
               </div>
             )}
             <div>
-              <p className="text-2xl">Rolls</p>
-              {!!state.prevResults &&
-                state.prevResults.map((result, ix) => {
-                  return (
-                    <div key={ix}>
-                      {result.modifier && result.modifier !== 0 ? (
-                        <div className="flex space-x-4">
-                          <p className="text-2xl">
-                            {result.roll + result.modifier}
-                          </p>
-                          <p className="text-2xl text-gray-400">
-                            {result.roll} {result.modifier < 0 ? "-" : "+"}{" "}
-                            {Math.abs(result.modifier)}
-                          </p>
-                        </div>
-                      ) : (
-                        <p className="text-2xl">{state.result}</p>
-                      )}
-                    </div>
-                  );
-                })}
+              {!!state.prevResults.length && (
+                <div>
+                  <p className="text-2xl">Rolls</p>
+                  {state.prevResults.map((result, ix) => {
+                    return (
+                      <div key={ix}>
+                        {result.modifier && result.modifier !== 0 ? (
+                          <div className="flex space-x-4">
+                            <p className="text-2xl">
+                              {result.roll + result.modifier}
+                            </p>
+                            <p className="text-2xl text-gray-400">
+                              {result.roll} {result.modifier < 0 ? "-" : "+"}{" "}
+                              {Math.abs(result.modifier)}
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="text-2xl">{state.result}</p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>
