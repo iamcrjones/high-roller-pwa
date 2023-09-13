@@ -33,7 +33,7 @@ const RollPage = () => {
       dispatch({ type: "setResult", payload: results });
     }
   };
-  console.log({ state });
+  // console.log({ state });
   return (
     <div>
       <div className="flex h-screen w-screen flex-col items-center justify-center border-2 border-pink-400">
@@ -41,7 +41,7 @@ const RollPage = () => {
           High Roller
         </p>
         <div className="flex space-x-8">
-          <Modifier />
+          <Modifier dispatch={dispatch} modifier={state.modifier} />
           <button
             onClick={() => {
               handleRoll(state.diceAmount);
