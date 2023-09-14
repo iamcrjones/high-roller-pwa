@@ -13,7 +13,7 @@ const Modifier = ({ dispatch, modifier }: ModifierProps) => {
             dispatch({ type: "setModifier", payload: modifier - 1 })
           }
         >
-          <span className="text-2xl">-</span>
+          <span className="select-none text-2xl">-</span>
         </div>
         {/* <div className="h-10 border-2 border-gray-500"></div> */}
         <input
@@ -31,7 +31,7 @@ const Modifier = ({ dispatch, modifier }: ModifierProps) => {
             dispatch({ type: "setModifier", payload: modifier + 1 })
           }
         >
-          <span className="mr-1 text-2xl">+</span>
+          <span className="mr-1 select-none text-2xl">+</span>
         </div>
       </div>
     </div>
