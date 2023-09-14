@@ -12,16 +12,16 @@ export default {
       },
       keyframes: {
         "slide-down-0": {
-          "0%": { opacity: "0", transform: "translateY(-32px)" },
+          "0%": { opacity: "0", transform: "translateY(-28px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "slide-down-1": {
-          "0%": { transform: "translateY(-32px)" },
+          "0%": { transform: "translateY(-28px)" },
           "100%": { transform: "translateY(0)" },
         },
         "slide-out": {
-          "0%": { opacity: "1", transform: "translateY(-32px)" },
-          "100%": { opacity: "0", transform: "translateY(32px)" },
+          "0%": { opacity: "1", transform: "translateY(-28px)" },
+          "100%": { opacity: "0", transform: "translateY(28px)" },
         },
       },
     },

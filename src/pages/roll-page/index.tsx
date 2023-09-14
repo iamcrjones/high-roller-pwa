@@ -40,7 +40,6 @@ const RollPage = () => {
       dispatch({ type: "setPrevResults", payload: prev });
     }
     if (state.prevResults.length && state.prevResults.length === 5) {
-      console.log({ p: prev[prev.length - 1] }, "PREVIOUS LAST");
       const prevLast = prev[prev.length - 1];
       if (prevLast === undefined) {
         throw new TypeError(
@@ -59,7 +58,6 @@ const RollPage = () => {
   function handleModChange(val: number) {
     dispatch({ type: "setModifier", payload: val });
   }
-  console.log({ r: state.removedPrevResult });
   return (
     <div>
       <div className="flex h-screen w-screen flex-col items-center justify-center ">
@@ -80,7 +78,7 @@ const RollPage = () => {
           <div className="flex h-full w-full flex-col items-center justify-between">
             {!!state.prevResults.length && (
               <div>
-                <p className="mt-3 text-4xl">You Rolled...</p>
+                <p className="mt-3 text-3xl">You Rolled...</p>
                 {state.prevResults[0]?.modifier &&
                 state.prevResults[0]?.modifier !== 0 ? (
                   <div className="flex space-x-4">

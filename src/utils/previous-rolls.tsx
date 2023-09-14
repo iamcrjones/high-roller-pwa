@@ -6,10 +6,9 @@ type PrevRollsProps = {
   removedRoll: PrevRoll | null;
 };
 const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
-  console.log("in prev");
   return (
     <div>
-      <p className="text-center text-2xl">Previous Rolls</p>
+      <p className="text-center text-xl">Previous Rolls</p>
       <div className="flex flex-col items-center justify-center">
         {prevResults.map((result, ix) => {
           return (
@@ -21,14 +20,14 @@ const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
             >
               {result.modifier && result.modifier !== 0 ? (
                 <div className="animate-slide-down flex space-x-4">
-                  <p className="text-2xl">{result.roll + result.modifier}</p>
-                  <p className="text-2xl text-gray-400">
+                  <p className="text-xl">{result.roll + result.modifier}</p>
+                  <p className="text-xl text-gray-400">
                     {result.roll} {result.modifier < 0 ? "-" : "+"}{" "}
                     {Math.abs(result.modifier)}
                   </p>
                 </div>
               ) : (
-                <p className="text-2xl">{result.roll}</p>
+                <p className="text-xl">{result.roll}</p>
               )}
             </div>
           );
@@ -41,16 +40,16 @@ const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
         >
           {removedRoll.modifier && removedRoll.modifier !== 0 ? (
             <div className="animate-slide-down flex space-x-4">
-              <p className="text-2xl">
+              <p className="text-xl">
                 {removedRoll.roll + removedRoll.modifier}
               </p>
-              <p className="text-2xl text-gray-400">
+              <p className="text-xl text-gray-400">
                 {removedRoll.roll} {removedRoll.modifier < 0 ? "-" : "+"}{" "}
                 {Math.abs(removedRoll.modifier)}
               </p>
             </div>
           ) : (
-            <p className="text-2xl">{removedRoll.roll}</p>
+            <p className="text-xl">{removedRoll.roll}</p>
           )}
         </div>
       ) : null}
