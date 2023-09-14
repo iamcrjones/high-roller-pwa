@@ -64,7 +64,7 @@ const RollPage = () => {
       <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl font-bold">
         High Roller
       </p>
-      <div className="absolute flex flex-col items-center justify-center ">
+      <div className="absolute inset-0 flex flex-col items-center justify-center ">
         <div className="flex items-center space-x-6">
           <Modifier dispatch={handleModChange} modifier={state.modifier} />
           <button
