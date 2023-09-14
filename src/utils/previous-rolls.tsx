@@ -8,7 +8,7 @@ type PrevRollsProps = {
 const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
   return (
     <div>
-      <p className="text-center text-xl">Previous Rolls</p>
+      <p className="mb-2 text-center text-xl">Previous Rolls</p>
       <div className="flex flex-col items-center justify-center">
         {prevResults.map((result, ix) => {
           return (
