@@ -46,7 +46,7 @@ const RollPage = () => {
   };
   return (
     <div>
-      <div className="flex h-screen w-screen flex-col items-center justify-center border-2 border-pink-400">
+      <div className="flex h-screen w-screen flex-col items-center justify-center ">
         <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
           High Roller
         </p>
