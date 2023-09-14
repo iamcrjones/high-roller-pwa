@@ -16,7 +16,7 @@ export type Action =
   | { type: "setModifier"; payload: number }
   | { type: "setPrevResults"; payload: PrevRes };
 
-function reducer(state: State, action: Action) {
+function reducer(state: State, action: Action): State {
   const { type, payload } = action;
   switch (type) {
     case "setResult":

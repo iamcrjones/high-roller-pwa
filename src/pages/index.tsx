@@ -5,7 +5,6 @@ import useScreenSize from "@/utils/useScreenSize";
 
 export default function Home() {
   const screenSize = useScreenSize();
-  console.log({ screenSize });
   return (
     <>
       <Head key="in-index">

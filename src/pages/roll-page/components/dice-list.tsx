@@ -1,14 +1,13 @@
-import type { Action } from "@/utils/reducer";
 import React from "react";
 
-type DiceListProps = { dispatch: React.Dispatch<Action>; currentDice: string };
+type DiceListProps = { dispatch: (val: string) => void; currentDice: string };
 const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
   return (
     <div className="absolute inset-y-0 left-4 flex flex-col justify-center space-y-4">
       <h2>Dice</h2>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d4" })}
+        onClick={() => dispatch("d4")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +29,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d6" })}
+        onClick={() => dispatch("d6")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +51,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d8" })}
+        onClick={() => dispatch("d8")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +73,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d10" })}
+        onClick={() => dispatch("d10")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +95,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d12" })}
+        onClick={() => dispatch("d12")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +117,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch({ type: "setDiceType", payload: "d20" })}
+        onClick={() => dispatch("d20")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
