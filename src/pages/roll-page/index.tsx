@@ -75,8 +75,9 @@ const RollPage = () => {
             ROLL
           </button>
         </div>
-        <div className="flex h-1/2 w-full flex-col items-center border-2 border-blue-500">
-          <div className="flex h-full flex-col items-center justify-between">
+        {/* <div className="flex h-1/2 w-full flex-col items-center border-2 border-blue-500"> */}
+        <div className="flex h-1/2 w-full flex-col items-center ">
+          <div className="flex h-full w-full flex-col items-center justify-between">
             {!!state.prevResults.length && (
               <div>
                 <p className="mt-3 text-4xl">You Rolled...</p>
@@ -98,7 +99,7 @@ const RollPage = () => {
                 )}
               </div>
             )}
-            <div className="h-1/2 w-full border-2 border-pink-200">
+            <div className="h-1/2 w-full ">
               {!!state.prevResults.length ? (
                 <MemPrev
                   prevResults={state.prevResults}
