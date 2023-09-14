@@ -7,14 +7,14 @@ const Modifier = ({ dispatch, modifier }: ModifierProps) => {
     <div className="mb-6 flex flex-col">
       <p className="text-md text-center">Modifier</p>
       <div className="flex">
-        <button
-          className="h-10 w-12 rounded-full rounded-r-none bg-gray-300 active:bg-gray-400"
+        <div
+          className=" flex h-10 w-12 items-center justify-center rounded-full rounded-r-none bg-gray-300 active:bg-gray-400"
           onClick={() =>
             dispatch({ type: "setModifier", payload: modifier - 1 })
           }
         >
           <span className="text-2xl">-</span>
-        </button>
+        </div>
         {/* <div className="h-10 border-2 border-gray-500"></div> */}
         <input
           placeholder="0"
@@ -25,14 +25,14 @@ const Modifier = ({ dispatch, modifier }: ModifierProps) => {
           }
           value={modifier}
         />
-        <button
-          className=" h-10 w-12 rounded-full rounded-l-none bg-gray-300 active:bg-gray-400"
+        <div
+          className=" flex h-10 w-12 items-center justify-center rounded-full rounded-l-none bg-gray-300 active:bg-gray-400"
           onClick={() =>
             dispatch({ type: "setModifier", payload: modifier + 1 })
           }
         >
-          <span className="text-2xl">+</span>
-        </button>
+          <span className="mr-1 text-2xl">+</span>
+        </div>
       </div>
     </div>
   );

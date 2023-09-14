@@ -50,13 +50,13 @@ const RollPage = () => {
         <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
           High Roller
         </p>
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-6">
           <Modifier dispatch={dispatch} modifier={state.modifier} />
           <button
             onClick={() => {
               handleRoll();
             }}
-            className="h-12 w-20 rounded bg-red-700 text-white "
+            className="h-12 w-20 rounded bg-red-700 text-white active:bg-red-800"
           >
             ROLL
           </button>
