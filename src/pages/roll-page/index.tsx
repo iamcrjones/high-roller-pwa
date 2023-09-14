@@ -84,15 +84,26 @@ const RollPage = () => {
                 )}
               </div>
             )}
-            <div>
+            <div className="h-1/2 w-full border-2 border-pink-200">
               {!!state.prevResults.length && (
                 <div>
                   <p className="text-2xl">Rolls</p>
                   {state.prevResults.map((result, ix) => {
+                    console.log({ result, ix });
                     return (
-                      <div key={ix}>
+                      <div
+                        key={`${result.roll}${
+                          result.modifier
+                        }${ix}${Date.now()}`}
+                        className={`${
+                          // "animate-slide-down-0"
+                          ix === 0
+                            ? "animate-slide-down-0"
+                            : "animate-slide-down-1"
+                        }`}
+                      >
                         {result.modifier && result.modifier !== 0 ? (
-                          <div className="flex space-x-4">
+                          <div className="animate-slide-down flex space-x-4">
                             <p className="text-2xl">
                               {result.roll + result.modifier}
                             </p>
