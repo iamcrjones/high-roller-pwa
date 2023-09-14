@@ -1,11 +1,13 @@
 export type State = {
   result: number | null;
   prevResults: PrevRes;
+  removedPrevResult: PrevRoll | null;
   diceType: string;
   modifier: number;
 };
 
-type PrevRes = { roll: number; modifier: number }[];
+type PrevRoll = { roll: number; modifier: number };
+type PrevRes = PrevRoll[];
 
 export type Action =
   | {
@@ -14,7 +16,8 @@ export type Action =
     }
   | { type: "setDiceType"; payload: string }
   | { type: "setModifier"; payload: number }
-  | { type: "setPrevResults"; payload: PrevRes };
+  | { type: "setPrevResults"; payload: PrevRes }
+  | { type: "setRemovedPrev"; payload: PrevRoll };
 
 function reducer(state: State, action: Action): State {
   const { type, payload } = action;
@@ -27,6 +30,8 @@ function reducer(state: State, action: Action): State {
       return { ...state, modifier: payload };
     case "setPrevResults":
       return { ...state, prevResults: payload };
+    case "setRemovedPrev":
+      return { ...state, removedPrevResult: payload };
     default:
       return state;
   }

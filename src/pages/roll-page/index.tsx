@@ -10,6 +10,7 @@ import { MemPrev } from "../../utils/previous-rolls";
 const initialState = {
   result: null,
   prevResults: [],
+  removedPrevResult: null,
   diceType: "d6",
   modifier: 0,
 };
@@ -39,6 +40,14 @@ const RollPage = () => {
       dispatch({ type: "setPrevResults", payload: prev });
     }
     if (state.prevResults.length && state.prevResults.length === 5) {
+      console.log({ p: prev[prev.length - 1] }, "PREVIOUS LAST");
+      const prevLast = prev[prev.length - 1];
+      if (prevLast === undefined) {
+        throw new TypeError(
+          "PrevResults is not length of 5. This should never throw"
+        );
+      }
+      dispatch({ type: "setRemovedPrev", payload: prevLast });
       prev.splice(-1, 1);
       prev.unshift({ roll: roll, modifier: state.modifier });
       dispatch({ type: "setPrevResults", payload: prev });
@@ -50,6 +59,7 @@ const RollPage = () => {
   function handleModChange(val: number) {
     dispatch({ type: "setModifier", payload: val });
   }
+  console.log({ r: state.removedPrevResult });
   return (
     <div>
       <div className="flex h-screen w-screen flex-col items-center justify-center ">
