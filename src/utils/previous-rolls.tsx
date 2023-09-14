@@ -1,7 +1,11 @@
 import React from "react";
+import type { PrevRoll } from "./reducer";
 
-type PrevRollsProps = { prevResults: { roll: number; modifier: number }[] };
-const PreviousRolls = ({ prevResults }: PrevRollsProps) => {
+type PrevRollsProps = {
+  prevResults: { roll: number; modifier: number }[];
+  removedRoll: PrevRoll | null;
+};
+const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
   console.log("in prev");
   return (
     <div>
@@ -28,6 +32,26 @@ const PreviousRolls = ({ prevResults }: PrevRollsProps) => {
           </div>
         );
       })}
+      {removedRoll ? (
+        <div
+          className="animate-slide-out"
+          key={`${removedRoll.roll}${Date.now()}`}
+        >
+          {removedRoll.modifier && removedRoll.modifier !== 0 ? (
+            <div className="animate-slide-down flex space-x-4">
+              <p className="text-2xl">
+                {removedRoll.roll + removedRoll.modifier}
+              </p>
+              <p className="text-2xl text-gray-400">
+                {removedRoll.roll} {removedRoll.modifier < 0 ? "-" : "+"}{" "}
+                {Math.abs(removedRoll.modifier)}
+              </p>
+            </div>
+          ) : (
+            <p className="text-2xl">{removedRoll.roll}</p>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -100,7 +100,10 @@ const RollPage = () => {
             )}
             <div className="h-1/2 w-full border-2 border-pink-200">
               {!!state.prevResults.length ? (
-                <MemPrev prevResults={state.prevResults} />
+                <MemPrev
+                  prevResults={state.prevResults}
+                  removedRoll={state.removedPrevResult}
+                />
               ) : null}
             </div>
           </div>

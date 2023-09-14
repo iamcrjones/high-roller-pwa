@@ -6,7 +6,7 @@ export type State = {
   modifier: number;
 };
 
-type PrevRoll = { roll: number; modifier: number };
+export type PrevRoll = { roll: number; modifier: number };
 type PrevRes = PrevRoll[];
 
 export type Action =
