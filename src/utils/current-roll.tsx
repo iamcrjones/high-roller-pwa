@@ -25,7 +25,7 @@ const CurrentRoll = React.memo(function Roll({
           </p>
         </div>
       ) : (
-        <p className="mt-16 flex justify-center text-5xl">
+        <p className="animate-fade-in mt-16 flex justify-center text-7xl">
           {prevResults[0]?.roll}
         </p>
       )}
