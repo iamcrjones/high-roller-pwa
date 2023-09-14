@@ -5,7 +5,7 @@ import type { Action, State } from "../../utils/reducer";
 import reducer from "../../utils/reducer";
 import DiceList from "./components/dice-list";
 import Modifier from "./components/modifier";
-import { MemPrev } from "./components/previous-rolls";
+import { MemPrev } from "../../utils/previous-rolls";
 
 const initialState = {
   result: null,
