@@ -80,7 +80,7 @@ const RollPage = () => {
                 <p className="mt-3 text-3xl">You Rolled...</p>
                 {state.prevResults[0]?.modifier &&
                 state.prevResults[0]?.modifier !== 0 ? (
-                  <div className="mt-24 flex animate-slide-down-0 flex-col items-center space-y-4">
+                  <div className="mt-20 flex animate-slide-down-0 flex-col items-center space-y-4">
                     <p className="text-6xl">
                       {state.prevResults[0]?.roll +
                         state.prevResults[0]?.modifier}
@@ -92,7 +92,7 @@ const RollPage = () => {
                     </p>
                   </div>
                 ) : (
-                  <p className="mt-24 flex justify-center text-6xl">
+                  <p className="mt-20 flex animate-slide-down-0 justify-center text-6xl">
                     {state.result}
                   </p>
                 )}
