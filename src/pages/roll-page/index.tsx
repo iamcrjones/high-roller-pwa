@@ -29,7 +29,7 @@ const RollPage = () => {
   }
   return (
     <>
-      <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl font-bold">
+      <p className=" absolute inset-x-0 top-8 flex justify-center text-4xl font-bold">
         High Roller
       </p>
       <div className="absolute inset-0 flex flex-col items-center justify-center ">
