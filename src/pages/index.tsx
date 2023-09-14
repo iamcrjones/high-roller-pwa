@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/icon-512x512.png"></link>
         <meta name="theme-color" content="#000" />
       </Head>
-      <main className="flex h-screen w-screen flex-col items-center justify-center border-2 bg-white ">
+      <main className=" flex h-screen w-screen flex-col items-center justify-center text-gray-400">
         <RollPage />
       </main>
     </>

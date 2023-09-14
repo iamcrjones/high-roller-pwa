@@ -59,8 +59,9 @@ const RollPage = () => {
     dispatch({ type: "setModifier", payload: val });
   }
   return (
-    <div>
-      <div className="flex h-screen w-screen flex-col items-center justify-center ">
+    // <div className="h-full border-2 border-green-800">
+    <>
+      <div className="absolute inset-0 flex flex-col items-center justify-center ">
         <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl">
           High Roller
         </p>
@@ -68,7 +69,7 @@ const RollPage = () => {
           <Modifier dispatch={handleModChange} modifier={state.modifier} />
           <button
             onClick={handleRoll}
-            className="h-12 w-20 rounded bg-red-700 text-white active:bg-red-800"
+            className="h-12 w-20 rounded bg-red-900 active:bg-red-800"
           >
             ROLL
           </button>
@@ -80,19 +81,19 @@ const RollPage = () => {
                 <p className="mt-3 text-3xl">You Rolled...</p>
                 {state.prevResults[0]?.modifier &&
                 state.prevResults[0]?.modifier !== 0 ? (
-                  <div className="mt-20 flex animate-slide-down-0 flex-col items-center space-y-4">
-                    <p className="text-6xl">
+                  <div className="mt-16 flex animate-slide-down-0 flex-col items-center space-y-4">
+                    <p className="text-5xl">
                       {state.prevResults[0]?.roll +
                         state.prevResults[0]?.modifier}
                     </p>
-                    <p className="text-6xl text-gray-400">
+                    <p className="text-4xl text-gray-400">
                       {state.prevResults[0].roll}{" "}
                       {state.prevResults[0].modifier < 0 ? "-" : "+"}{" "}
                       {Math.abs(state.prevResults[0].modifier)}
                     </p>
                   </div>
                 ) : (
-                  <p className="mt-20 flex animate-slide-down-0 justify-center text-6xl">
+                  <p className="mt-16 flex animate-slide-down-0 justify-center text-5xl">
                     {state.result}
                   </p>
                 )}
@@ -109,10 +110,9 @@ const RollPage = () => {
           </div>
         </div>
       </div>
-      <div className="absolute inset-y-0 left-0 ">
-        <DiceList dispatch={handleDiceChange} currentDice={state.diceType} />
-      </div>
-    </div>
+      <DiceList dispatch={handleDiceChange} currentDice={state.diceType} />
+      {/* </div> */}
+    </>
   );
 };
 export default RollPage;

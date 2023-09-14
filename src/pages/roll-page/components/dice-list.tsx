@@ -3,8 +3,7 @@ import React from "react";
 type DiceListProps = { dispatch: (val: string) => void; currentDice: string };
 const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
   return (
-    <div className="absolute inset-y-0 left-4 flex flex-col justify-center space-y-4">
-      <h2>Dice</h2>
+    <div className=" absolute left-0 flex flex-col justify-center space-y-4 rounded-xl rounded-l-none bg-gray-800 px-2 py-4 text-gray-400">
       <div
         className="flex flex-col items-center space-y-2"
         onClick={() => dispatch("d4")}
@@ -16,7 +15,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 81 91"
           className={`transition-all ${
             "d4" === currentDice ? "scale-125" : ""
-          } ${"d4" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d4" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M1.5 49L32 2.5L78.5 56.5L19 89.5L1.5 49Z" />
           <path
@@ -38,7 +37,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 74 79"
           className={`transition-all ${
             "d6" === currentDice ? "scale-125" : ""
-          } ${"d6" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d6" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M1 12L43 1.5L72.5 17.5V66L28.5 77.5L1 60.5V12Z" />
           <path
@@ -60,7 +59,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 68 77"
           className={`transition-all ${
             "d8" === currentDice ? "scale-125" : ""
-          } ${"d8" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d8" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M1.5 22.5L47 1.5L66.5 53L21 75.5L1.5 22.5Z" />
           <path
@@ -82,7 +81,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 67 74"
           className={`transition-all ${
             "d10" === currentDice ? "scale-125" : ""
-          } ${"d10" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d10" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M18 1.5L65.5 11.5L63.5 61L50 72L2 61L5.5 9L18 1.5Z" />
           <path
@@ -104,7 +103,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 81 78"
           className={`transition-all ${
             "d12" === currentDice ? "scale-125" : ""
-          } ${"d12" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d12" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M17 11L31.5 2L58 4.5L72.5 25L79.5 43L66 67L51.5 76.5L23.5 75L9.5 55L2 34L17 11Z" />
           <path
@@ -126,7 +125,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           viewBox="0 0 82 80"
           className={`transition-all ${
             "d20" === currentDice ? "scale-125" : ""
-          } ${"d20" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
+          } ${"d20" === currentDice ? "fill-red-900" : "fill-gray-500"}`}
         >
           <path d="M14 7.5L57 1.5L80.5 35L66.5 72.5L23 78.5L1.5 44.5L14 7.5Z" />
           <path
