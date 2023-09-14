@@ -7,7 +7,7 @@ export type State = {
 };
 
 export type PrevRoll = { roll: number; modifier: number };
-type PrevRes = PrevRoll[];
+export type PrevRes = PrevRoll[];
 
 export type Action =
   | {

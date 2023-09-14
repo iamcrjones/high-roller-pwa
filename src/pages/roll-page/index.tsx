@@ -1,11 +1,12 @@
-import { rollDice } from "@/utils/rollDice";
 import React, { useReducer } from "react";
 import type { Reducer } from "react";
 import type { Action, State } from "../../utils/reducer";
 import reducer from "../../utils/reducer";
 import DiceList from "./components/dice-list";
 import Modifier from "./components/modifier";
-import { MemPrev } from "../../utils/previous-rolls";
+import CurrentRoll from "@/utils/current-roll";
+import { handleRoll } from "@/utils/handle-roll";
+import PreviousRolls from "@/utils/previous-rolls";
 
 const initialState = {
   result: null,
@@ -20,38 +21,6 @@ const RollPage = () => {
     initialState
   );
 
-  const handleRoll = () => {
-    const rollNum = state.diceType.split("d")[1];
-    const roll = rollDice(1, +rollNum!);
-    dispatch({ type: "setResult", payload: roll });
-    const prev = [...state.prevResults];
-    if (!state.prevResults.length) {
-      prev.push({
-        roll: roll,
-        modifier: state.modifier,
-      });
-      dispatch({
-        type: "setPrevResults",
-        payload: prev,
-      });
-    }
-    if (state.prevResults.length && state.prevResults.length < 5) {
-      prev.unshift({ roll: roll, modifier: state.modifier });
-      dispatch({ type: "setPrevResults", payload: prev });
-    }
-    if (state.prevResults.length && state.prevResults.length === 5) {
-      const prevLast = prev[prev.length - 1];
-      if (prevLast === undefined) {
-        throw new TypeError(
-          "PrevResults is not length of 5. This should never throw"
-        );
-      }
-      dispatch({ type: "setRemovedPrev", payload: prevLast });
-      prev.splice(-1, 1);
-      prev.unshift({ roll: roll, modifier: state.modifier });
-      dispatch({ type: "setPrevResults", payload: prev });
-    }
-  };
   function handleDiceChange(val: string) {
     dispatch({ type: "setDiceType", payload: val });
   }
@@ -59,16 +28,15 @@ const RollPage = () => {
     dispatch({ type: "setModifier", payload: val });
   }
   return (
-    // <div className="h-full border-2 border-green-800">
     <>
-      <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl font-bold">
+      {/* <p className=" absolute inset-x-0 top-2 flex justify-center text-4xl font-bold">
         High Roller
-      </p>
+      </p> */}
       <div className="absolute inset-0 flex flex-col items-center justify-center ">
         <div className="flex items-center space-x-6">
           <Modifier dispatch={handleModChange} modifier={state.modifier} />
           <button
-            onClick={handleRoll}
+            onClick={() => handleRoll(state, dispatch)}
             className="h-12 w-20 rounded bg-red-700 active:bg-red-800"
           >
             ROLL
@@ -79,29 +47,12 @@ const RollPage = () => {
             {!!state.prevResults.length && (
               <div>
                 <p className="mt-3 text-3xl">You Rolled...</p>
-                {state.prevResults[0]?.modifier &&
-                state.prevResults[0]?.modifier !== 0 ? (
-                  <div className="mt-16 flex flex-col items-center space-y-4">
-                    <p className="text-5xl">
-                      {state.prevResults[0]?.roll +
-                        state.prevResults[0]?.modifier}
-                    </p>
-                    <p className="text-4xl text-gray-400">
-                      {state.prevResults[0].roll}{" "}
-                      {state.prevResults[0].modifier < 0 ? "-" : "+"}{" "}
-                      {Math.abs(state.prevResults[0].modifier)}
-                    </p>
-                  </div>
-                ) : (
-                  <p className="mt-16 flex justify-center text-5xl">
-                    {state.result}
-                  </p>
-                )}
+                <CurrentRoll prevResults={state.prevResults} />
               </div>
             )}
             <div className="h-1/2 w-full ">
               {!!state.prevResults.length ? (
-                <MemPrev
+                <PreviousRolls
                   prevResults={state.prevResults}
                   removedRoll={state.removedPrevResult}
                 />
@@ -111,7 +62,6 @@ const RollPage = () => {
         </div>
       </div>
       <DiceList dispatch={handleDiceChange} currentDice={state.diceType} />
-      {/* </div> */}
     </>
   );
 };

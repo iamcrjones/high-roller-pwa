@@ -5,7 +5,10 @@ type PrevRollsProps = {
   prevResults: { roll: number; modifier: number }[];
   removedRoll: PrevRoll | null;
 };
-const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
+const PreviousRolls = React.memo(function Rolls({
+  prevResults,
+  removedRoll,
+}: PrevRollsProps) {
   return (
     <div className="mt-24">
       <p className="mb-2 text-center text-xl">Previous Rolls</p>
@@ -55,6 +58,5 @@ const PreviousRolls = ({ prevResults, removedRoll }: PrevRollsProps) => {
       ) : null}
     </div>
   );
-};
-const MemPrev = React.memo(PreviousRolls);
-export { MemPrev };
+});
+export default PreviousRolls;
