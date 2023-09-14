@@ -73,7 +73,6 @@ const RollPage = () => {
             ROLL
           </button>
         </div>
-        {/* <div className="flex h-1/2 w-full flex-col items-center border-2 border-blue-500"> */}
         <div className="flex h-1/2 w-full flex-col items-center ">
           <div className="flex h-full w-full flex-col items-center justify-between">
             {!!state.prevResults.length && (
@@ -81,19 +80,21 @@ const RollPage = () => {
                 <p className="mt-3 text-3xl">You Rolled...</p>
                 {state.prevResults[0]?.modifier &&
                 state.prevResults[0]?.modifier !== 0 ? (
-                  <div className="flex animate-slide-down-0 justify-center space-x-4">
-                    <p className="text-2xl">
+                  <div className="mt-24 flex animate-slide-down-0 flex-col items-center space-y-4">
+                    <p className="text-6xl">
                       {state.prevResults[0]?.roll +
                         state.prevResults[0]?.modifier}
                     </p>
-                    <p className="text-2xl text-gray-400">
+                    <p className="text-6xl text-gray-400">
                       {state.prevResults[0].roll}{" "}
                       {state.prevResults[0].modifier < 0 ? "-" : "+"}{" "}
                       {Math.abs(state.prevResults[0].modifier)}
                     </p>
                   </div>
                 ) : (
-                  <p className="flex justify-center text-2xl">{state.result}</p>
+                  <p className="mt-24 flex justify-center text-6xl">
+                    {state.result}
+                  </p>
                 )}
               </div>
             )}
