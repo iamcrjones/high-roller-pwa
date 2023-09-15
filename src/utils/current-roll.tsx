@@ -10,7 +10,7 @@ const CurrentRoll = React.memo(function Roll({
     <>
       {prevResults[0]?.modifier && prevResults[0]?.modifier !== 0 ? (
         <div
-          className="mt-16 flex flex-col items-center space-y-4"
+          className=" mt-16 flex flex-col items-center space-y-4 "
           key={`${prevResults[0]?.roll}${Date.now()}`}
         >
           <p
@@ -25,11 +25,12 @@ const CurrentRoll = React.memo(function Roll({
           </p>
         </div>
       ) : (
-        <div className=" flex flex-col items-center space-y-4">
-          <p className="animate-fade-in mt-16 flex justify-center text-7xl">
-            {prevResults[0]?.roll}
-          </p>
-          <p></p>
+        <div
+          className="mt-16 flex flex-col items-center space-y-4 "
+          key={`${prevResults[0]?.roll}${Date.now()}`}
+        >
+          <p className="animate-fade-in text-7xl">{prevResults[0]?.roll}</p>
+          <p className="scale-0 text-xl">{prevResults[0]?.roll}</p>
         </div>
       )}
     </>
