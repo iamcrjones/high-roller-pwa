@@ -19,7 +19,7 @@ const CurrentRoll = React.memo(function Roll({
           >
             {prevResults[0]?.roll + prevResults[0]?.modifier}
           </p>
-          <p className=" animate-fade-in-slide  text-xl text-gray-400 transition delay-1000">
+          <p className=" animate-fade-in-slide  text-xl text-gray-400 transition">
             {prevResults[0].roll} {prevResults[0].modifier < 0 ? "-" : "+"}{" "}
             {Math.abs(prevResults[0].modifier)}
           </p>

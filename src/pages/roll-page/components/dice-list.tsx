@@ -10,8 +10,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="45"
+          height="45"
           viewBox="0 0 81 91"
           className={`transition-all ${
             "d4" === currentDice ? "scale-125" : ""
@@ -54,16 +54,22 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="45"
+          height="45"
           viewBox="0 0 68 77"
           className={`transition-all ${
             "d8" === currentDice ? "scale-125" : ""
           } ${"d8" === currentDice ? "fill-red-700" : "fill-gray-300"}`}
         >
-          <path d="M1.5 22.5L47 1.5L66.5 53L21 75.5L1.5 22.5Z" />
+          {/* <path d="M1.5 22.5L47 1.5L66.5 53L21 75.5L1.5 22.5Z" />
           <path
             d="M47 1.5L1.5 22.5M47 1.5L66.5 53L21 75.5M47 1.5L54.5 37.5M1.5 22.5L21 75.5M1.5 22.5L54.5 37.5M21 75.5L54.5 37.5"
+            stroke="black"
+            strokeWidth="2"
+          /> */}
+          <path d="M2 23L47.5 2L67 53.5L21.5 76L2 23Z" />
+          <path
+            d="M47.5 2L2 23M47.5 2L67 53.5M47.5 2L55 38M2 23L21.5 76M2 23L55 38M21.5 76L67 53.5M21.5 76L55 38M67 53.5L55 38"
             stroke="black"
             strokeWidth="2"
           />

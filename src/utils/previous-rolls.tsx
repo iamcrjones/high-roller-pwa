@@ -18,7 +18,8 @@ const PreviousRolls = React.memo(function Rolls({
             <div
               key={`${result.roll}${result.modifier}${ix}${Date.now()}`}
               className={`${
-                ix === 0 ? "animate-slide-down-0" : "animate-slide-down-1"
+                // ix === 0 ? "animate-slide-down-0" : "animate-slide-down-1"
+                ix === 0 ? "animate-fade-in-slide" : "animate-slidey-boy"
               }`}
             >
               {result.modifier && result.modifier !== 0 ? (
@@ -42,7 +43,7 @@ const PreviousRolls = React.memo(function Rolls({
           key={`${removedRoll.roll}${Date.now()}`}
         >
           {removedRoll.modifier && removedRoll.modifier !== 0 ? (
-            <div className="animate-slide-down flex space-x-4">
+            <div className="flex space-x-4">
               <p className="text-xl">
                 {removedRoll.roll + removedRoll.modifier}
               </p>
