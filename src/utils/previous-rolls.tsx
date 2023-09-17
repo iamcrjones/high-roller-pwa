@@ -18,7 +18,6 @@ const PreviousRolls = React.memo(function Rolls({
             <div
               key={`${result.roll}${result.modifier}${ix}${Date.now()}`}
               className={`${
-                // ix === 0 ? "animate-slide-down-0" : "animate-slide-down-1"
                 ix === 0 ? "animate-fade-in-slide" : "animate-slidey-boy"
               }`}
             >
