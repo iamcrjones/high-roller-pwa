@@ -6,7 +6,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
     <div className=" absolute left-0 flex flex-col justify-center space-y-4 rounded-xl rounded-l-none bg-gray-800 px-2 py-4 text-gray-300">
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d4")}
+        onClick={() => {
+          dispatch("d4");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +31,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d6")}
+        onClick={() => {
+          dispatch("d6");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +56,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d8")}
+        onClick={() => {
+          dispatch("d8");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +87,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d10")}
+        onClick={() => {
+          dispatch("d10");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +112,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d12")}
+        onClick={() => {
+          dispatch("d12");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +137,10 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       </div>
       <div
         className="flex flex-col items-center space-y-2"
-        onClick={() => dispatch("d20")}
+        onClick={() => {
+          dispatch("d20");
+          window?.navigator?.vibrate(50);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
