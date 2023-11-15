@@ -5,7 +5,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
   return (
     <div className=" absolute left-0 flex flex-col justify-center space-y-4 rounded-xl rounded-l-none bg-gray-800 px-2 py-4 text-gray-300">
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d4");
           window?.navigator?.vibrate(50);
@@ -13,8 +13,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="45"
-          height="45"
+          width="32"
+          height="32"
           viewBox="0 0 81 91"
           className={`transition-all ${
             "d4" === currentDice ? "scale-125" : ""
@@ -30,7 +30,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
         <h3>d4</h3>
       </div>
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d6");
           window?.navigator?.vibrate(50);
@@ -38,8 +38,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="32"
+          height="32"
           viewBox="0 0 74 79"
           className={`transition-all ${
             "d6" === currentDice ? "scale-125" : ""
@@ -55,7 +55,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
         <h3>d6</h3>
       </div>
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d8");
           window?.navigator?.vibrate(50);
@@ -63,8 +63,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="45"
-          height="45"
+          width="32"
+          height="32"
           viewBox="0 0 68 77"
           className={`transition-all ${
             "d8" === currentDice ? "scale-125" : ""
@@ -86,7 +86,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
         <h3>d8</h3>
       </div>
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d10");
           window?.navigator?.vibrate(50);
@@ -94,8 +94,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="32"
+          height="32"
           viewBox="0 0 67 74"
           className={`transition-all ${
             "d10" === currentDice ? "scale-125" : ""
@@ -111,7 +111,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
         <h3>d10</h3>
       </div>
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d12");
           window?.navigator?.vibrate(50);
@@ -119,8 +119,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="32"
+          height="32"
           viewBox="0 0 81 78"
           className={`transition-all ${
             "d12" === currentDice ? "scale-125" : ""
@@ -136,7 +136,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
         <h3>d12</h3>
       </div>
       <div
-        className="flex flex-col items-center space-y-2"
+        className="flex h-16 w-10 flex-col items-center space-y-2"
         onClick={() => {
           dispatch("d20");
           window?.navigator?.vibrate(50);
@@ -144,8 +144,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="32"
+          height="32"
           viewBox="0 0 82 80"
           className={`transition-all ${
             "d20" === currentDice ? "scale-125" : ""
