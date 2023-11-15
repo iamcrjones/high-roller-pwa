@@ -36,7 +36,10 @@ const RollPage = () => {
         <div className="flex items-center space-x-6">
           <Modifier dispatch={handleModChange} modifier={state.modifier} />
           <button
-            onClick={() => handleRoll(state, dispatch)}
+            onClick={() => {
+              handleRoll(state, dispatch);
+              window?.navigator?.vibrate(200);
+            }}
             className="h-12 w-20 rounded bg-red-700 active:bg-red-800"
           >
             ROLL
