@@ -29,7 +29,7 @@
     "**/*.cjs",
     "**/*.mjs",
     "next.config.js",
-    "src/pages/roll-page/components/dice.jsx"
+    "src/components/roll-page/components/dice.jsx"
   ],
   "exclude": ["node_modules"]
 }
