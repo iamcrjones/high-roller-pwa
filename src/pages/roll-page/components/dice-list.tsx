@@ -8,19 +8,20 @@ import D20Svg from "./dice-svgs/D20Svg";
 
 type DiceListProps = { dispatch: (val: string) => void; currentDice: string };
 const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
-  const diceMap = new Map([
-    ["d4", D4Svg],
-    ["d6", D6Svg],
-    ["d8", D8Svg],
-    ["d10", D10Svg],
-    ["d12", D12Svg],
-    ["d20", D20Svg],
-  ]);
-
+  const diceMap = useMemo(() => {
+    return new Map([
+      ["d4", D4Svg],
+      ["d6", D6Svg],
+      ["d8", D8Svg],
+      ["d10", D10Svg],
+      ["d12", D12Svg],
+      ["d20", D20Svg],
+    ]);
+  }, []);
   const Kek = useMemo(() => {
     //Force to always contain value as currentDice is provided a value on reducer initial state
     return diceMap.get(currentDice)!;
-  }, [currentDice]);
+  }, [diceMap, currentDice]);
 
   return (
     <>
