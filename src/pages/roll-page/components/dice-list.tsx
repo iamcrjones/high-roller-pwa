@@ -18,7 +18,8 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
       ["d20", D20Svg],
     ]);
   }, []);
-  const Kek = useMemo(() => {
+
+  const SelectedDice = useMemo(() => {
     //Force to always contain value as currentDice is provided a value on reducer initial state
     return diceMap.get(currentDice)!;
   }, [diceMap, currentDice]);
@@ -43,7 +44,7 @@ const DiceList = ({ dispatch, currentDice }: DiceListProps) => {
           );
         })}
       </div>
-      <Kek currentDice={currentDice} />
+      <SelectedDice currentDice={currentDice} />
     </>
   );
 };
