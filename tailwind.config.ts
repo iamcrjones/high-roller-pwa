@@ -4,6 +4,7 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      transitionProperty: { "max-height": "max-height" },
       fontFamily: { roboto: ["Roboto Mono", "monospace"] },
       animation: {
         "slide-out": "slide-out 0.75s ease forwards",

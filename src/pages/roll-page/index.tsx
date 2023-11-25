@@ -6,7 +6,7 @@ import DiceList from "../../components/roll-page/components/dice-list";
 import Modifier from "../../components/roll-page/components/modifier";
 import CurrentRoll from "@/utils/current-roll";
 import { handleRoll } from "@/utils/handle-roll";
-import PreviousRolls from "@/utils/previous-rolls";
+import PreviousRolls from "@/components/roll-page/components/previous-rolls";
 
 const initialState = {
   result: null,
@@ -14,6 +14,7 @@ const initialState = {
   removedPrevResult: null,
   diceType: "d6",
   modifier: 0,
+  diceDrawerOpen: false,
 };
 const RollPage = () => {
   const [state, dispatch] = useReducer<Reducer<State, Action>>(
@@ -26,6 +27,9 @@ const RollPage = () => {
   }
   function handleModChange(val: number) {
     dispatch({ type: "setModifier", payload: val });
+  }
+  function handleDrawerOpen(val: boolean) {
+    dispatch({ type: "setDiceDrawerOpen", payload: val });
   }
   return (
     <>
@@ -64,7 +68,12 @@ const RollPage = () => {
           </div>
         </div>
       </div>
-      <DiceList dispatch={handleDiceChange} currentDice={state.diceType} />
+      <DiceList
+        handleDiceChange={handleDiceChange}
+        handleDrawerOpen={handleDrawerOpen}
+        currentDice={state.diceType}
+        open={state.diceDrawerOpen}
+      />
     </>
   );
 };

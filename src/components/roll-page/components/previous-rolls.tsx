@@ -1,5 +1,5 @@
 import React from "react";
-import type { PrevRoll } from "./reducer";
+import type { PrevRoll } from "../../../utils/reducer";
 
 type PrevRollsProps = {
   prevResults: { roll: number; modifier: number }[];
