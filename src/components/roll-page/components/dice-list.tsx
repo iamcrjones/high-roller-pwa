@@ -36,19 +36,10 @@ const DiceList = ({
 
   return (
     <div
-      className={`absolute left-0 top-2/3 flex flex-col justify-center overflow-hidden rounded-l-none ${
+      className={`absolute bottom-8 left-0 flex flex-col justify-center overflow-hidden rounded-l-none ${
         open ? "space-y-4" : "space-y-0"
       } rounded-xl bg-gray-800 p-4 text-gray-300`}
     >
-      <div
-        className="flex items-center justify-center"
-        onClick={() => {
-          handleDrawerOpen(!open);
-          console.log({ open });
-        }}
-      >
-        <SelectedDice currentDice={currentDice} />
-      </div>
       <div
         className={`ease transition-height duration-500 ${
           open ? "max-h-[500px]" : "pointer-events-none max-h-0 opacity-0"
@@ -70,6 +61,15 @@ const DiceList = ({
             </div>
           );
         })}
+      </div>
+      <div
+        className="flex items-center justify-center"
+        onClick={() => {
+          handleDrawerOpen(!open);
+          console.log({ open });
+        }}
+      >
+        <SelectedDice currentDice={currentDice} />
       </div>
     </div>
   );
