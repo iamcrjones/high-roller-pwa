@@ -38,7 +38,7 @@ const DiceList = ({
     <div
       className={`absolute bottom-8 left-0 flex flex-col justify-center overflow-hidden rounded-l-none ${
         open ? "space-y-4" : "space-y-0"
-      } rounded-xl bg-gray-800 px-4 text-gray-300`}
+      } rounded-xl bg-gray-800 px-2 text-gray-300`}
     >
       <div
         className={`ease transition-height flex flex-col duration-500 ${
