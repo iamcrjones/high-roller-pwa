@@ -38,11 +38,11 @@ const DiceList = ({
     <div
       className={`absolute bottom-8 left-0 flex flex-col justify-center overflow-hidden rounded-l-none ${
         open ? "space-y-4" : "space-y-0"
-      } rounded-xl bg-gray-800 p-4 text-gray-300`}
+      } rounded-xl bg-gray-800 px-4 text-gray-300`}
     >
       <div
-        className={`ease transition-height duration-500 ${
-          open ? "max-h-[500px]" : "pointer-events-none max-h-0 opacity-0"
+        className={`ease transition-height flex flex-col duration-500 ${
+          open ? "max-h-[500px] pt-2" : "pointer-events-none max-h-0 opacity-0"
         } `}
       >
         {[...diceMap].map((entry) => {
@@ -63,10 +63,9 @@ const DiceList = ({
         })}
       </div>
       <div
-        className="flex items-center justify-center"
+        className="z-10 flex h-full w-full items-center justify-center bg-gray-800 py-4"
         onClick={() => {
           handleDrawerOpen(!open);
-          console.log({ open });
         }}
       >
         <SelectedDice currentDice={currentDice} />
