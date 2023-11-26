@@ -37,12 +37,14 @@ const DiceList = ({
   return (
     <div
       className={`absolute bottom-8 left-0 flex flex-col justify-center overflow-hidden rounded-l-none ${
-        open ? "space-y-4" : "space-y-0"
+        open ? "space-y-2" : "space-y-0"
       } rounded-xl bg-gray-800 px-2 text-gray-300`}
     >
       <div
         className={`ease transition-height flex flex-col duration-500 ${
-          open ? "max-h-[500px] pt-2" : "pointer-events-none max-h-0 opacity-0"
+          open
+            ? "max-h-[500px] space-y-2 pt-2"
+            : "pointer-events-none max-h-0 opacity-0"
         } `}
       >
         {[...diceMap].map((entry) => {
