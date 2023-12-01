@@ -2,8 +2,8 @@ const D10Svg = ({ currentDice }: { currentDice: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
+      width="24"
+      height="24"
       viewBox="0 0 67 74"
       className={`transition-all ${"d10" === currentDice ? "scale-125" : ""} ${
         "d10" === currentDice ? "fill-red-700" : "fill-gray-300"

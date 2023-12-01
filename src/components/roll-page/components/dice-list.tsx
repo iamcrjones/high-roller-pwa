@@ -36,36 +36,37 @@ const DiceList = ({
 
   return (
     <div
-      className={`absolute bottom-8 left-0 flex flex-col justify-center overflow-hidden rounded-l-none ${
-        open ? "space-y-2" : "space-y-0"
-      } rounded-xl bg-gray-800 px-2 text-gray-300`}
+      className={`absolute bottom-8 left-4 flex min-h-[64px] flex-col items-center justify-center overflow-hidden rounded-full bg-gray-800 px-3 text-gray-300`}
     >
-      <div
-        className={`ease transition-height flex flex-col duration-500 ${
-          open
-            ? "max-h-[500px] space-y-2 pt-2"
-            : "pointer-events-none max-h-0 opacity-0"
-        } `}
-      >
-        {[...diceMap].map((entry) => {
-          const EntryComponent = entry[1];
-          return (
-            <div
-              key={entry[0]}
-              className="flex h-16 w-10 flex-col items-center space-y-2"
-              onClick={() => {
-                currentDice !== entry[0] && handleDiceChange(entry[0]);
-                window?.navigator?.vibrate(50);
-              }}
-            >
-              <EntryComponent currentDice={currentDice} />
-              <h3>{entry[0]}</h3>
-            </div>
-          );
-        })}
+      <div className="h-full">
+        <div
+          className={` ease transition-height flex flex-col duration-500 ${
+            open
+              ? "max-h-[500px] pt-3"
+              : "pointer-events-none max-h-0 opacity-0"
+          } `}
+        >
+          {[...diceMap].map((entry) => {
+            const EntryComponent = entry[1];
+            return (
+              <div
+                key={entry[0]}
+                className="flex h-16 w-10 flex-col items-center"
+                onClick={() => {
+                  currentDice !== entry[0] && handleDiceChange(entry[0]);
+                  window?.navigator?.vibrate(50);
+                }}
+              >
+                <EntryComponent currentDice={currentDice} />
+                <h3>{entry[0]}</h3>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
       <div
-        className="z-10 flex h-full w-full items-center justify-center bg-gray-800 py-4"
+        className="z-10 flex h-full w-full flex-col items-center justify-center bg-gray-800 py-4"
         onClick={() => {
           handleDrawerOpen(!open);
         }}
